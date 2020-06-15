@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<style>
+.button {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 22px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+
+}
+		</style>
+		<title>Fake News Detector</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static',filename='styles/css/main.css') }}" />
+		
+		
+		<noscript><link rel="stylesheet" href="{{ url_for('static',filename='styles/css/noscript.css') }}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main">
+						<header>
+							<span class="avatar"><img src={{ url_for('static', filename="images/5.jfif") }} height="250" width="250" alt="" /></span>
+							</header>
+<br>
+					<form action="{{ url_for('speech')}}" method="POST">
+	<footer>
+							<ul class="icons">
+										
+								<button type="submit" onclick="myFunction()" value="VOICE" class="button"><span>V o i c e 🎙️</span></button><br>
+								<br><p>Click button to Speak </p>
+								<img id="demo" src={{ url_for('static', filename="images/white.jpg") }} width="70" height="70"> 
+
+									<script>
+									function myFunction() {
+  								//ar x= document.images.namedItem("myImg").src;
+  								document.getElementById("demo").src = "{{ url_for('static', filename="images/mic2.gif") }}";
+									}
+									</script>
+							</ul>
+							
+	</footer>
+					</form>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script>
+				if ('addEventListener' in window) {
+					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-preload\b/, ''); });
+					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+				}
+			</script>
+
+	</body>
+</html>
